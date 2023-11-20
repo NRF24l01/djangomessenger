@@ -21,7 +21,7 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Войти в аккаунт</p>
-                                <form class="mx-1 mx-md-4" method="get" action="/register/mail_sender">
+                                <form class="mx-1 mx-md-4" method="get" action="/register/login/cheker">
                                     {% if err %}
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             {% if err == "-1" %}
@@ -36,8 +36,8 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="email" id="email" class="form-control" name="email"/>
-                                            <label class="form-label" name="email" for="form3Example3c">Почта или имя пользователя</label>
+                                            <input type="email" id="lg" class="form-control" name="lg"/>
+                                            <label class="form-label" name="lg" for="form3Example3c">Почта или имя пользователя</label>
                                         </div>
                                     </div>
 

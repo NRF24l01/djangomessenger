@@ -25,10 +25,10 @@
                                     {% if err %}
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             {% if err == "-1" %}
-                                                <h3 class="text-danger text-center">Такой пользователь уже
-                                                    существует <a href='/login'>Перейти на страницу входа</a></h3>
+                                                <p class="fs-2 text-danger text-center">Такой пользователь уже
+                                                    существует <a href='/login'>Перейти на страницу входа</a></p>
                                             {% else %}
-                                                <h3 class="text-danger text-center">{{ err }}</h3>
+                                                <p class="fs-2 text-danger text-center">{{ err }}</p>
                                             {% endif %}
                                         </div>
                                     {% endif %}
@@ -66,7 +66,7 @@
                                     </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="agree"
+                                        <input class="form-check-input me-2" type="checkbox" id="agree"
                                                name="agree"/>
                                         <label class="form-check-label" for="form2Example3">
                                             Я принимаю <a href="#!">правила сервиса</a>
