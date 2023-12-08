@@ -34,10 +34,16 @@ def register_sistem(request):
 
 
 def render_register(request):
+    print(request.session.get("id", None))
+    if request.session.get("id", None):
+        return redirect("/messenger/chat")
     err = request.GET.get("err", None)
     return render(request, 'register.html', {"err": err})
 
 def render_login(request):
+    print(request.session.get("id", None))
+    if request.session.get("id", None):
+        return redirect("/messenger/chat")
     err = request.GET.get("err", None)
     return render(request, 'login.html', {"err": err})
 
@@ -45,8 +51,17 @@ def login_user(request):
     username = request.GET.get("lg", None)
     pasw = request.GET.get("pass", None)
 
-    if len(Users.objects.filter(email=username, pasw=pasw)) > 0 or len(Users.objects.filter(username=username, pasw=pasw)) > 0:
+    if len(Users.objects.filter(email=username, pasw=pasw)) > 0:
+        id = Users.objects.get(email=username, pasw=pasw).id
+        request.session["user"] = username
+        request.session["id"] = id
+        request.session["pass"] = pasw
+        return redirect("/messenger/chat")
+    elif len(Users.objects.filter(username=username, pasw=pasw)) > 0:
+        id = Users.objects.get(username=username, pasw=pasw).id
+        request.session["id"] = id
         request.session["user"] = username
         request.session["pass"] = pasw
+        return redirect("/messenger/chat")
     else:
-        return redirect()
+        return redirect("/register/login/?err=Пользователь не обнаружен")
