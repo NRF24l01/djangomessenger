@@ -2,5 +2,5 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('chat/', views.chatrender, name='regren'),
+    path('chat/<int:chat_number>', views.chatrender, name='regren'),
 ]

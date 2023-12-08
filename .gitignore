@@ -1,3 +1,7 @@
 venv
 .idea
 data.sqlite3
+api/migrations
+chatsistem/migrations
+djangomessenger/migrations
+register/migrations
